@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_webfonts.html") %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <base target="_blank">
+  </head>
+  <body>
+    <script>
+      var here = new URL(window.location);
+      document.body.classList.add(here.searchParams.get("theme"));
+    </script>
+
+    <liveblog-headlines
+      src="http://api.npr.org/query?id=812054919&requiredAssets=text&dateType=story&action=Or&output=RSS&numResults=6&apiKey=MDEyNDU2Mzk0MDEzODI1NzgzNjNmNzkxZA001&date=today"
+      href="https://www.npr.org/series/812054919/the-coronavirus-crisis"
+    ></liveblog-headlines>
+    <script>
+      var widget = document.querySelector("liveblog-headlines");
+      if (here.searchParams.get("feed")) {
+        widget.setAttribute("src", here.searchParams.get("feed"));
+      }
+      if (here.searchParams.get("link")) {
+        widget.setAttribute("href", here.searchParams.get("link"));
+      }
+    </script>
+
+    <script src="app.js" async></script>
+  </body>
+</html>
