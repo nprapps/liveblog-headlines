@@ -35,7 +35,6 @@ class LiveblogHeadlines extends ElementBase {
   constructor() {
     super();
     this.interval = null;
-    console.log(this);
   }
 
   static get boundMethods() {
