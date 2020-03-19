@@ -42,7 +42,7 @@ class LiveblogHeadlines extends ElementBase {
   }
 
   static get observedAttributes() {
-    return ["src", "href"]
+    return ["src", "href", "headline"]
   }
 
   connectedCallback() {
@@ -56,7 +56,16 @@ class LiveblogHeadlines extends ElementBase {
   }
 
   attributeChangedCallback(attr, was, value) {
-    this.load();
+    switch (attr) {
+
+      case "headline":
+        var { headline } = this.illuminate();
+        headline.innerHTML = value.trim();
+        break;
+
+      default:
+        this.load();
+    }
   }
 
   getDocument(url) {
@@ -102,7 +111,7 @@ class LiveblogHeadlines extends ElementBase {
     return `
 <div class="title">
   <a data-as="titleLink">
-    <h2>
+    <h2 data-as="headline">
       This Just In
     </h2>
   </a>
