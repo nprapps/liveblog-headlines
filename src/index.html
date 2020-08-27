@@ -20,16 +20,16 @@
     ></liveblog-headlines>
     <script>
       var widget = document.querySelector("liveblog-headlines");
-      var params = {};
-      if (here.searchParams.has("feed")) {
-        widget.setAttribute("src", here.searchParams.get("feed"));
+      var applyParams = function(query, attribute) {
+        if (here.searchParams.has(query)) {
+          widget.setAttribute(attribute, here.searchParams.get(query));
+        }
       }
-      if (here.searchParams.has("link")) {
-        widget.setAttribute("href", here.searchParams.get("link"));
-      }
-      if (here.searchParams.has("headline")) {
-        widget.setAttribute("headline", here.searchParams.get("headline"));
-      }
+
+      applyParams("feed", "src");
+      applyParams("link", "href");
+      applyParams("headline", "headline");
+      applyParams("limit", "max");
     </script>
 
     <script src="app.js" async></script>
