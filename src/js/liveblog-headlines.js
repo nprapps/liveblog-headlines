@@ -2,6 +2,7 @@ var ElementBase = require("./element-base");
 var dot = require("./lib/dot");
 var template = dot.compile(require("./_headlines.html"));
 var $ = require("./lib/qsa");
+var track = require("./lib/tracking");
 
 var { formatTime, formatAPDate } = require("./utils");
 
@@ -104,7 +105,10 @@ class LiveblogHeadlines extends ElementBase {
     });
     var max = this.hasAttribute("max") ? this.getAttribute("max") : 6;
     headlines = headlines.sort((a, b) => b.date - a.date).slice(0, max);
-    elements.headlines.innerHTML = template({ headlines, formatAPDate, formatTime })
+    elements.headlines.innerHTML = template({ headlines, formatAPDate, formatTime });
+    $("a", elements.headlines).forEach(function(a) {
+      a.addEventListener("click", () => track("liveblogs homepage module", "click link", a.href));
+    });
   }
 
   static get template() {
