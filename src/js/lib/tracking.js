@@ -14,13 +14,13 @@ var a = document.createElement("a");
 
 var slug = window.location.pathname.replace(/^\/|\/$/g, "");
 
-var track = function(eventAction, eventLabel, eventValue) {
+var track = function(eventCategory, eventAction, eventLabel, eventValue) {
   var event = {
+    eventCategory,
     eventAction,
     eventLabel,
     eventValue,
-    hitType: "event",
-    eventCategory: "apps-" + slug
+    hitType: "event"
   }
 
   console.log(`Tracking: ${eventAction} / ${eventLabel} / ${eventValue}`)
