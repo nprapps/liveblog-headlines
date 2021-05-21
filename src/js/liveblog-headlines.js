@@ -61,7 +61,12 @@ class LiveblogHeadlines extends ElementBase {
 
       case "headline":
         var { headline } = this.illuminate();
-        headline.innerHTML = value.trim();
+        if (value.trim() == "Morning Edition Live") {
+          headline.innerHTML = '<img src="./assets/logo-morning-edition.svg" alt="Morning Edition"><span class="live-bug">Live</a>';
+          headline.classList.add("morning-edition");
+        } else {
+          headline.innerHTML = value.trim();
+        }
         break;
 
       default:

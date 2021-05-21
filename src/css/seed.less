@@ -1,6 +1,8 @@
 @import "base";
 
 liveblog-headlines {
+  --secondary: #767676;
+
   font-size: var(--font-size);
 
   .story {
@@ -31,6 +33,24 @@ liveblog-headlines {
         height: 16px;
         width: auto;
         margin-bottom: 2px;
+      }
+
+      &.morning-edition {
+        white-space: nowrap;
+
+        img {
+          height: 20px;
+          margin-right: 0.6em;
+        }
+        .live-bug {
+          .knockout-header();
+          background: @rigorous;
+          color: #fff;
+          padding: 1px 5px;
+          border-radius: 4px;
+          font-size: 12px;
+          -webkit-font-smoothing: auto;
+        }
       }
     }
 
