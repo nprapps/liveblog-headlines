@@ -27,7 +27,7 @@ Key URL parameters
 This headlines widget looks for several URL parameters (ideally urlencoded), in this order:
 
 * ``feed`` - URL for a standard blog RSS feed
-* `link`` - URL for the blog landing page (populates the "MORE" link at the top of the widget)
+* ``link`` - URL for the blog landing page (populates the "MORE" link at the top of the widget)
 * ``headline`` - Title that displays at the top of the widget, above the headlines (usually the title of the blog)
 * ``max`` - The maximum number of headlines shown (optional; the default is 6)
 
