@@ -52,6 +52,21 @@ liveblog-headlines {
           -webkit-font-smoothing: auto;
         }
       }
+
+      &.tokyo-olympics {
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: "";
+          width: 25px;
+          height: 25px;
+          background: url(https://media.npr.org/assets/img/2021/07/06/thetorch-square_sq-s100-c85.png) no-repeat;
+          background-size: contain;
+          display: inline-block;
+          margin-right: 10px;
+        }
+      }
     }
 
     a {

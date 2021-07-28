@@ -64,6 +64,9 @@ class LiveblogHeadlines extends ElementBase {
         if (value.trim() == "Morning Edition Live") {
           headline.innerHTML = '<img src="./assets/logo-morning-edition.svg" alt="Morning Edition"><span class="live-bug">Live</a>';
           headline.classList.add("morning-edition");
+        } else if (value.trim() == "Latest Updates: The Tokyo Olympics") {
+          headline.classList.add("tokyo-olympics");
+          headline.innerHTML = value.trim();
         } else {
           headline.innerHTML = value.trim();
         }
@@ -112,7 +115,9 @@ class LiveblogHeadlines extends ElementBase {
         link, date, relative, tags, flag
       }
     });
+
     var max = this.hasAttribute("max") ? this.getAttribute("max") : 6;
+    // console.log(this.getAttribute("max"), max);
     headlines = headlines.sort((a, b) => b.date - a.date).slice(0, max);
     elements.headlines.innerHTML = template({ headlines, formatAPDate, formatTime });
     $("a", elements.headlines).forEach(function(a) {
