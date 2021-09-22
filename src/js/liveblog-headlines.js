@@ -99,9 +99,18 @@ class LiveblogHeadlines extends ElementBase {
     }
     elements.moreLink.href = elements.titleLink.href = href;
     var rss = await this.getDocument(src);
+
+    var timestamps = true;
+    if (this.hasAttribute("timestamps")) {
+      if (this.getAttribute("timestamps") == "false") {
+        timestamps = false;
+      }
+    }
+
     var headlines = $("item", rss).map(function(element) {
       var tags = $("category", element).map(c => c.innerHTML);
       var [flag] = tags.filter(t => t == "Fact Check" || t == "Major Development");
+      var showTimestamps = timestamps;
       var pubDate = $.one("pubDate", element).innerHTML
       var date = Date.parse(pubDate);
       var relative = relativeTime(date);
@@ -112,7 +121,7 @@ class LiveblogHeadlines extends ElementBase {
       link = link.toString();
       return {
         headline: $.one("title", element).innerHTML,
-        link, date, relative, tags, flag
+        link, date, relative, tags, flag, showTimestamps
       }
     });
 
