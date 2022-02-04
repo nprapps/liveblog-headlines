@@ -64,8 +64,8 @@ class LiveblogHeadlines extends ElementBase {
         if (value.trim() == "Morning Edition Live") {
           headline.innerHTML = '<img src="./assets/logo-morning-edition.svg" alt="Morning Edition"><span class="live-bug">Live</a>';
           headline.classList.add("morning-edition");
-        } else if (value.trim() == "Latest Updates: The Tokyo Olympics") {
-          headline.classList.add("tokyo-olympics");
+        } else if (value.toLowerCase().includes("olympic")) {
+          headline.classList.add("olympics");
           headline.innerHTML = value.trim();
         } else {
           headline.innerHTML = value.trim();
