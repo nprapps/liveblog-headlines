@@ -17,6 +17,7 @@
     "babelify": "^10.0.0",
     "browser-pack-flat": "^3.0.5",
     "browserify": "^16.2.3",
+    "caniuse-lite": "^1.0.30001312",
     "chalk": "^2.4.2",
     "commonmark": "^0.24.0",
     "csv": "^5.1.1",
