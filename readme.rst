@@ -32,6 +32,10 @@ This headlines widget looks for several URL parameters (ideally urlencoded), in 
 * ``limit`` - The maximum number of headlines shown (optional; the default is 6)
 * ``timestamps`` - Boolean to turn timestamps on or off (optional; the default is `true`)
 
+Sample embed code
+-----------------
+
+``<p data-pym-loader data-child-src="https://apps.npr.org/liveblog-headlines/?feed=https://www.npr.org/live-updates/student-loan-forgiveness-how-to-apply.rss&link=https://www.npr.org/live-updates/student-loan-forgiveness-how-to-apply&headline=Live%20Updates:%20Student%20Loan%20Forgiveness" id="responsive-embed-hhm-headlines"> Loading... </p> <script src="https://pym.nprapps.org/npr-pym-loader.v2.min.js"></script>``
 
 Running tasks
 -------------
