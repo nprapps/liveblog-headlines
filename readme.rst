@@ -29,7 +29,7 @@ This headlines widget looks for several URL parameters (ideally urlencoded), in 
 * ``feed`` - URL for a standard blog RSS feed
 * ``link`` - URL for the blog landing page (populates the "MORE" link at the top of the widget)
 * ``headline`` - Title that displays at the top of the widget, above the headlines (usually the title of the blog)
-* ``limit`` - The maximum number of headlines shown (optional; the default is 6)
+* ``limit`` - The maximum number of headlines shown (optional; the default is 6. to show all available headlines, use ``limit=all``)
 * ``timestamps`` - Boolean to turn timestamps on or off (optional; the default is `true`)
 
 Sample embed code

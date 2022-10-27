@@ -129,7 +129,9 @@ class LiveblogHeadlines extends ElementBase {
     });
 
     var max = this.hasAttribute("max") ? this.getAttribute("max") : 6;
-    // console.log(this.getAttribute("max"), max);
+    if (max == "all") {
+      max = headlines.length;
+    }
     headlines = headlines.sort((a, b) => b.date - a.date).slice(0, max);
     elements.headlines.innerHTML = template({ headlines, formatAPDate, formatTime });
     $("a", elements.headlines).forEach(function(a) {
