@@ -67,6 +67,9 @@ class LiveblogHeadlines extends ElementBase {
         } else if (value.toLowerCase().includes("olympic")) {
           headline.classList.add("olympics");
           headline.innerHTML = value.trim();
+        } else if (value.toLowerCase().includes("election") && value.toLowerCase().includes("2022")) {
+          headline.classList.add("election-2022");
+          headline.innerHTML = value.trim();
         } else {
           headline.innerHTML = value.trim();
         }
