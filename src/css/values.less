@@ -8,35 +8,55 @@
 /*
  * Fonts
  */
-@gotham: 'Gotham SSm', Helvetica, Arial, sans-serif;
-@knockout: 'Knockout 31 4r','Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-@sans: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-@serif: Georgia, "Times New Roman", Times, serif;
-
-.gotham() {
-  font-family: @gotham;
+ @lato: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+ @sourceSansPro: 'Source Sans Pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+ @gotham: @lato;
+ @knockout: @sourceSansPro;
+ @sans: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+ @serif: Georgia, "Times New Roman", Times, serif;
+ 
+.lato() {
+  font-family: @lato;
   font-weight: normal;
-  font-weight: 400;
+  letter-spacing: 0.025em;
+}
+.gotham() {
+  .lato();
 }
 
 // Normal Knockout
+.sourceSansPro() {
+  font-family: @sourceSansPro;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
 .knockout() {
-  font-family: @knockout;
-  font-weight: normal;
+  .sourceSansPro();
 }
 
 // Knockout, uppercased
-.knockout-upper() {
-  .knockout();
+.sourceSansPro-upper() {
+  .sourceSansPro();
   text-transform: uppercase;
+}
+.knockout-upper() {
+  .sourceSansPro-upper();
 }
 
 // Knockout for headings
-.knockout-header() {
-  .knockout-upper();
+.sourceSansPro-header() {
+  .sourceSansPro-upper();
   letter-spacing: 0.05em;
   -webkit-font-smoothing: antialiased;
 }
+.knockout-header() {
+  .sourceSansPro-header();
+}
+
+.sans-serif() {
+  font-family: @sans;
+}
+
 
 /*
  * Colors
