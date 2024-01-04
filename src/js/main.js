@@ -4,8 +4,9 @@ var guest = Sidechain.registerGuest();
 // load the various result elements
 require("./liveblog-headlines");
 
+var params = new URLSearchParams(window.location.search);
+
 var checkIfNPR = function() {
-  var params = new URLSearchParams(window.location.search);
   var parentURL = new URL(decodeURI(params.get("parentUrl")));
 
   if (parentURL.hostname.includes("npr.org")) {
@@ -14,9 +15,17 @@ var checkIfNPR = function() {
     return false;
   }
 }
+var checkIfPjax = function() {
+  var usePjax = true;
+  if (params.has("pjax") && params.get("pjax") == "false") {
+    usePjax = false;
+  }
+  return usePjax;
+}
 
 var isNPR = checkIfNPR();
-if (isNPR) {
+var isPjax = checkIfPjax();
+if (isNPR && isPjax) {
   document.body.addEventListener("click", function(e) {
     var target = e.target;
     var link = target.closest("a[href]");
