@@ -168,4 +168,21 @@ liveblog-headlines {
       }
     }
   }
+
+  // theming
+  &[theme="2024"] .title h2 {
+    display: flex;
+    align-items: center;
+
+    &::before {
+      content: "";
+      width: 50px;
+      height: 25px;
+      background: url("assets/logo-2024.svg") no-repeat;
+      background-size: contain;
+      display: inline-block;
+      margin-right: 10px;
+      margin-top: 10px
+    }
+  }
 }

@@ -59,10 +59,11 @@ class LiveblogHeadlines extends ElementBase {
   attributeChangedCallback(attr, was, value) {
     switch (attr) {
 
+      // keeping this for backwards compatibility, but going forward use the "theme" url param instead
       case "headline":
         var { headline } = this.illuminate();
         if (value.trim() == "Morning Edition Live") {
-          headline.innerHTML = '<img src="./assets/logo-morning-edition.svg" alt="Morning Edition"><span class="live-bug">Live</a>';
+          headline.innerHTML = '<img src="./assets/logo-morning-edition.svg" alt="Morning Edition"><span class="live-bug">Live</span>';
           headline.classList.add("morning-edition");
         } else if (value.toLowerCase().includes("olympic")) {
           headline.classList.add("olympics");
@@ -74,7 +75,7 @@ class LiveblogHeadlines extends ElementBase {
           headline.innerHTML = value.trim();
         }
         break;
-
+      
       default:
         this.load();
     }
