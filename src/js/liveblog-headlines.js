@@ -97,6 +97,7 @@ class LiveblogHeadlines extends ElementBase {
   async load() {
     var elements = this.illuminate();
     var src = this.getAttribute("src");
+    var theme = this.getAttribute("theme");
     var href = this.getAttribute("href");
     // if (!href) {
     //   href = src.replace(/\/[^\/]+$/, "/");
@@ -114,6 +115,9 @@ class LiveblogHeadlines extends ElementBase {
       if (this.getAttribute("timestamps") == "false") {
         timestamps = false;
       }
+    }
+    if (theme == "tinydesk") {
+      timestamps = false;
     }
 
     var headlines = $("item", rss).map(function(element) {
@@ -141,7 +145,11 @@ class LiveblogHeadlines extends ElementBase {
     headlines = headlines.sort((a, b) => b.date - a.date).slice(0, max);
     elements.headlines.innerHTML = template({ headlines, formatAPDate, formatTime });
     $("a", elements.headlines).forEach(function(a) {
-      a.addEventListener("click", () => track("liveblogs homepage module", "click link", a.href));
+      if (theme == "tinydesk") {
+        a.addEventListener("click", () => track("tinydesk most popular module", "click link", a.href));
+      } else {
+        a.addEventListener("click", () => track("liveblogs homepage module", "click link", a.href));
+      }
     });
   }
 
