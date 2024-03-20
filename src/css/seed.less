@@ -1,7 +1,10 @@
 @import "base";
 
 liveblog-headlines {
+  --link: #333;
+  --link-secondary: #6d8ac4;
   --secondary: #767676;
+  --font-size: 14px;
 
   font-size: var(--font-size);
 
@@ -86,11 +89,12 @@ liveblog-headlines {
     }
 
     a {
-      color: #333;
+      color: var(--link);
       text-decoration: none;
 
-      &:hover, &:active {
-        color: @accent-light;
+      // only behave like a link if there's actually an href attached
+      &[href]:hover, &[href]:active {
+        color: var(--link-secondary);
       }
     }
 
@@ -160,11 +164,11 @@ liveblog-headlines {
       text-decoration: none;
 
       &:link, &:visited {
-        color: var(--link-secondary);
+        color: var(--link);
       }
 
       &:hover, &:active {
-        color: var(--link);
+        color: var(--link-secondary);
       }
     }
   }

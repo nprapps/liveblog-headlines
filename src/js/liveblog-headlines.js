@@ -98,10 +98,15 @@ class LiveblogHeadlines extends ElementBase {
     var elements = this.illuminate();
     var src = this.getAttribute("src");
     var href = this.getAttribute("href");
-    if (!href) {
-      href = src.replace(/\/[^\/]+$/, "/");
+    // if (!href) {
+    //   href = src.replace(/\/[^\/]+$/, "/");
+    // }
+    if (href) {
+      elements.moreLink.href = elements.titleLink.href = href;
+    } else {
+      // if no link is specified, don't show the "more" link
+      elements.moreLink.style.display = 'none';
     }
-    elements.moreLink.href = elements.titleLink.href = href;
     var rss = await this.getDocument(src);
 
     var timestamps = true;
