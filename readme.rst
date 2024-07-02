@@ -34,6 +34,8 @@ This headlines widget looks for several URL parameters (ideally urlencoded), in 
 * ``theme`` - Specify a predefined theme or branding icon to appear next within the widget (optional; options: null, `2024`)
 * ``pjax`` - Boolean to load links via pjax when this embed lives on an NPR.org page (optional; the default is `true`)
 
+As new parameters are added or modified, please update the code snippet generator: https://github.com/nprapps/tools-code-snippets
+
 Sample embed code
 -----------------
 
