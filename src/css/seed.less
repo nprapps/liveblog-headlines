@@ -96,6 +96,14 @@ liveblog-headlines {
       &[href]:hover, &[href]:active {
         color: var(--link-secondary);
       }
+
+      @media (prefers-color-scheme: dark) {
+        color: rgb(241, 241, 241);
+
+        &[href]:hover, &[href]:active {
+          color: #83B6FC;
+        }
+      }
     }
 
     .more {
@@ -158,6 +166,10 @@ liveblog-headlines {
       }
       .fact-check { color: @true; }
       .major-development { color: @rigorous; }
+      
+      @media (prefers-color-scheme: dark) {
+        color: #D4D4D4;
+      }
     }
 
     a {
@@ -165,10 +177,16 @@ liveblog-headlines {
 
       &:link, &:visited {
         color: var(--link);
+        @media (prefers-color-scheme: dark) {
+          color: rgb(241, 241, 241);;
+        }
       }
 
       &:hover, &:active {
         color: var(--link-secondary);
+        @media (prefers-color-scheme: dark) {
+          color: #83B6FC;
+        }
       }
     }
   }

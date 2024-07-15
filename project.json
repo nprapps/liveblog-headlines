@@ -6,7 +6,7 @@
     },
     "live": {
       "bucket": "apps.npr.org",
-      "path": "liveblog-headlines"
+      "path": "liveblog-headlines-test"
     }
   },
   "styles": {
