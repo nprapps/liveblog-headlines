@@ -53,10 +53,20 @@ var oldOnload = window.onload;
 window.onload = (typeof window.onload != 'function') ? setupGoogleAnalytics : function() { oldOnload(); setupGoogleAnalytics(); };
 
 // Listen for DataConsentChanged event 
-document.addEventListener('npr:DataConsentChanged', () => {
+window.addEventListener('npr:DataConsentChanged', () => {
 
   // Bail early if it's already been set up 
   if (googleAnalyticsAlreadyInitialized) return;
+
+   // listen for Data Consent overlay being closed on NPR.org
+   window.addEventListener("message", event => {
+    console.log(event);
+    const origin = /.*npr\.org.*/g;
+    if (event.data == "Data consent updated" && origin.test(event.origin)) {
+      OneTrust.Close();
+      setupGoogle();
+    }
+  });
 
   // When a user opts into performance and analytics cookies, initialize GA
   if (DataConsent.hasConsentedTo(DataConsent.PERFORMANCE_AND_ANALYTICS)) {
