@@ -31,7 +31,7 @@ This headlines widget looks for several URL parameters (ideally urlencoded), in 
 * ``headline`` - Title that displays at the top of the widget, above the headlines (usually the title of the blog)
 * ``limit`` - The maximum number of headlines shown (optional; the default is 6. to show all available headlines, use ``limit=all``)
 * ``timestamps`` - Boolean to turn timestamps on or off (optional; the default is `true`)
-* ``theme`` - Specify a predefined theme or branding icon to appear next within the widget (optional; options: null, `2024`)
+* ``theme`` - Specify a predefined theme or branding icon to appear next within the widget (optional; options: null, `2024`, `olympics`, `tinydesk`)
 * ``pjax`` - Boolean to load links via pjax when this embed lives on an NPR.org page (optional; the default is `true`)
 
 As new parameters are added or modified, please update the code snippet generator: https://github.com/nprapps/tools-code-snippets
