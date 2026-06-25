@@ -1,9 +1,7 @@
 @import "base";
 
 liveblog-headlines {
-  --link: #333;
-  --link-secondary: #6d8ac4;
-  --secondary: #767676;
+  --link-color: var(--link-muted);
   --font-size: 14px;
 
   font-size: var(--font-size);
@@ -19,7 +17,7 @@ liveblog-headlines {
     margin-bottom: 1.5em;
     color: #333;
     padding-bottom: .75em;
-    border-bottom: 2px solid #eee;
+    border-bottom: 1px solid var(--rule-color);
 
     h2 {
       margin: 0;
@@ -89,18 +87,18 @@ liveblog-headlines {
     }
 
     a {
-      color: var(--link);
+      color: var(--link-color);
       text-decoration: none;
 
       // only behave like a link if there's actually an href attached
       &[href]:hover, &[href]:active {
-        color: var(--link-secondary);
+        color: var(--link-hover);
       }
     }
 
     .more {
       .sans();
-      background-color: var(--shaded);
+      // background-color: var(--shaded);
       border-radius: 6px;
       line-height: 22px;
       padding: 0 11px;
@@ -156,19 +154,19 @@ liveblog-headlines {
         font-weight: bold;
         text-transform: uppercase;
       }
-      .fact-check { color: @true; }
-      .major-development { color: @rigorous; }
+      .fact-check { color: var(--true); }
+      .major-development { color: var(--rigorous); }
     }
 
     a {
       text-decoration: none;
 
       &:link, &:visited {
-        color: var(--link);
+        color: var(--link-color);
       }
 
       &:hover, &:active {
-        color: var(--link-secondary);
+        color: var(--link-hover);
       }
     }
   }

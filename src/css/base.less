@@ -14,6 +14,7 @@
 
 //elements
 body {
+  background: var(--background);
   padding: 0;
   margin: 0;
   //remove 300ms click delay in Safari, AKA still the worst
@@ -21,6 +22,7 @@ body {
   font-family: @sans;
   font-size: 14px;
   line-height: 1.4;
+  color: var(--text-color);
 }
 
 img, svg {
@@ -30,15 +32,14 @@ img, svg {
 h1 {
   .sans();
   font-size: 20px;
-  color: #666;
 }
 
 a, a:visited {
-  color: @accent-dark;
+  color: var(--link-color);
 }
 
 a:hover, a:active, a:focus {
-  color: @accent-light;
+  color: var(--link-hover);
 }
 
 img:not([alt]) {

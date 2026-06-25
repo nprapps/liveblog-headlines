@@ -53,8 +53,30 @@
 /*
  * Colors
  */
-@accent-dark: #4774CC;
+@accent-dark: #6d8ac4;
 @accent-light: #bccae5;
+
+@link-default: @accent-dark;
+@link-hover: #0a61db;
+@link-muted: #333;
+@link-minor: #787878;
+@link-dark: #83B6FC;
+@link-hover-dark: #BFBFBF;
+@link-muted-dark: #f1f1f1;
+@link-minor-dark: #d4d4d4;
+
+@background-default: #fff;
+@background-dark: #202020;
+
+@rule-default: #eee;
+@rule-dark: #bfbfbf;
+
+@text-default: #333;
+@text-highlight-default: #111;
+@text-mid-default: #666;
+@text-dark: #f1f1f1;
+@text-highlight-dark: @text-dark;
+@text-mid-dark: @text-dark;
 
 @rigorous: #d62021;
 @unbiased: #000005;
@@ -67,4 +89,39 @@
   clip: inset(0, 0, 0, 0);
   width: 1px;
   height: 1px;
+}
+
+
+// Export values to CSS custom properties
+:root {
+  --accent-dark: @accent-dark;
+  --accent-light: @accent-light;
+  --rigorous: @rigorous;
+  --unbiased: @unbiased;
+  --true: @true;
+  --sans: @sans;
+  --serif: @serif;
+  --vh: 1vh;
+
+  --background: @background-default;
+  --text-color: @text-default;
+  --text-highlight: @text-highlight-default;
+  --text-mid: @text-mid-default;
+  --link-color: @link-default;
+  --link-hover: @link-hover;
+  --link-muted: @link-muted;
+  --shaded: #f1f1f1;
+  --rule-color: @rule-default;
+
+  @media (prefers-color-scheme: dark) {
+    --background: @background-dark;
+    --text-color: @text-dark;
+    --text-highlight: @text-highlight-dark;
+    --text-mid: @text-mid-dark;
+    --link-color: @link-dark;
+    --link-hover: @link-hover-dark;
+    --link-muted: @link-muted-dark;
+    --shaded: lighten(@background-dark, 10%);
+    --rule-color: @rule-dark;
+  }
 }
