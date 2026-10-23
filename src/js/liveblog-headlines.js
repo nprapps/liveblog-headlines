@@ -123,8 +123,9 @@ class LiveblogHeadlines extends ElementBase {
     var headlines = $("item", rss).map(function(element) {
       var tags = $("category", element).map(c => c.innerHTML);
       var [flag] = tags.filter(t => t == "Fact Check" || t == "Major Development");
+      var org = $.one("org", element).innerHTML;
       var showTimestamps = timestamps;
-      var pubDate = $.one("pubDate", element).innerHTML
+      var pubDate = $.one("pubDate", element).innerHTML;
       var date = Date.parse(pubDate);
       var relative = relativeTime(date);
       var articleURL = $.one("link", element).textContent;
@@ -134,7 +135,7 @@ class LiveblogHeadlines extends ElementBase {
       link = link.toString();
       return {
         headline: $.one("title", element).innerHTML,
-        link, date, relative, tags, flag, showTimestamps
+        link, date, org, relative, tags, flag, showTimestamps
       }
     });
 

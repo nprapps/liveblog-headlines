@@ -169,6 +169,15 @@ liveblog-headlines {
         color: var(--link-hover);
       }
     }
+
+    .org {
+      display: none;
+      color: var(--secondary);
+      font-style: normal;
+      font-weight: normal;
+      margin-top: 3px;
+      font-size: 1em;
+    }
   }
 
   // theming
@@ -207,6 +216,34 @@ liveblog-headlines {
     ol {
       list-style-type: decimal;
       margin-left: 1.2em;
+    }
+  }
+
+  &[theme="election2026"] {
+    .title {
+      display: none;
+    }
+    a { font-weight: 500; }
+    ol {
+      columns: unset;
+      
+      li {
+        display: flex;
+
+        .meta {
+          order: 1;
+          flex: 0 0 100px;
+          margin-top: 1px;
+          margin-right: 10px;
+        }
+
+        h3 {
+          order: 2;
+          font-size: 1.0em;
+        }
+
+      }
+      .org { display: block; }
     }
   }
 }

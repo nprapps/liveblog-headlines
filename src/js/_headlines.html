@@ -9,7 +9,14 @@
 %>
 <% data.headlines.forEach(function(h, i) { %>
 <li class="story">
-  <h3><a href="<%= h.link %>"><%= h.headline %></a></h3>
+  <h3>
+    <a href="<%= h.link %>">
+      <%= h.headline %>
+    </a>
+    <% if (h.org) { %>
+      <cite class="org <%= classify(h.org) %>"><%= h.org %></cite>
+    <% } %>
+  </h3>
   <span class="meta">
     <% if (h.showTimestamps) { %>
     <%= h.relative %>
